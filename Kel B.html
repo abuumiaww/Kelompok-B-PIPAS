@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Klasifikasi Zat & Kelompok B</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #dff6ff, #b2ebf2);
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 330px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #0077b6;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      border: 1px solid #0096c7;
+      border-radius: 6px;
+      background-color: #f9fcff;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    select:focus {
+      border: 1px solid #0077b6;
+      box-shadow: 0 0 5px rgba(0, 119, 182, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: white;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #0096c7, #023e8a);
+      transform: scale(1.05);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #f1f9ff;
+      border-left: 4px solid #0096c7;
+      color: #023e8a;
+    }
+
+    .kelompok {
+      line-height: 1.6;
+    }
+
+    .kelompok strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 20px;
+      color: #005f73;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Klasifikasi Unsur, Senyawa, dan Campuran</h2>
+
+    <select id="pilihan">
+      <option value="unsur">Unsur</option>
+      <option value="senyawa">Senyawa</option>
+      <option value="homogen">Campuran Homogen</option>
+      <option value="heterogen">Campuran Heterogen</option>
+    </select>
+    <button onclick="tampilkan()">Tampilkan Contoh</button>
+
+    <ul id="hasil"></ul>
+  </div>
+
+  <div class="container kelompok">
+    <strong>Kelompok B</strong>
+    <p>Nama Anggota:</p>
+    <ul>
+      <li>Joaquin Sebastian Lorenzo</li>
+      <li>M.Arkan Alghifari Akbar</li>
+      <li>Faiq Fadhillah</li>
+      <li>Riyandi Winarta Anugrah</li>
+      <li>Ahmad Haedar Alghazali</li>
+      <li>Antares Immanuel Camerling</li>
+      <li>M.AbuBakar Ishak</li>
+    </ul>
+  </div>
+
+  <script>
+    function tampilkan() {
+      let pilihan = document.getElementById("pilihan").value;
+      let hasil = document.getElementById("hasil");
+      hasil.innerHTML = "";
+
+      let data = {
+        unsur: ["Oksigen (O2)", "Hidrogen (H2)"],
+        senyawa: ["Air (H2O)", "Gula (C6H12O6)", "Garam (NaCl)","Minyak (C3H8O3)"],
+        homogen: ["Larutan Kopi", "Larutan gula", "Larutan garam", "Larutan Milo", "Larutan Minyak Dan Sabun"],
+        heterogen: ["Minyak + Air"]
+      };
+
+      data[pilihan].forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item;
+        hasil.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
